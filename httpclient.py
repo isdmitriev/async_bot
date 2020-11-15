@@ -22,13 +22,7 @@ class HttpClient(object):
 
 
 
-async def main():
 
-    print(await HttpClient().get_data_from_server())
-
-
-loop = asyncio.get_event_loop()
-loop.run_until_complete(main())
 
 
 
