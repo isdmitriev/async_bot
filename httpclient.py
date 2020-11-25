@@ -1,5 +1,19 @@
 import asyncio
 import aiohttp
+import telebot
+import telegram
+
+class SetWebHook(object):
+    def __init__(self):
+        pass
+    @classmethod
+    def set_web_hook(cls):
+        bot=telegram.Bot(token='1365051067:AAHIxSr2WCPuGqkukq0pHLQCupuEiGA6N3w')
+        bot.delete_webhook()
+        bot.set_webhook('https://178.150.135.5:8443/1365051067:AAHIxSr2WCPuGqkukq0pHLQCupuEiGA6N3w',open('webhook_cert.pem','rb'))
+
+
+
 class HttpClient(object):
     def __init__(self):
         self.url='https://api.telegram.org/bot1365051067:AAHIxSr2WCPuGqkukq0pHLQCupuEiGA6N3w/'
@@ -17,6 +31,8 @@ class HttpClient(object):
 
             await session.post(fullUrl,data=payLoad)
             
+
+
 
 
 
