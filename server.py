@@ -8,6 +8,8 @@ from aiohttp import  web
 SetWebHook().set_web_hook()
 router=web.RouteTableDef()
 
+
+
 @router.post('/1365051067:AAHIxSr2WCPuGqkukq0pHLQCupuEiGA6N3w')
 async def handler(request:web.Request):
 
@@ -42,6 +44,7 @@ async def handler(request:web.Request):
         chat_id = responseDict['message']['chat']['id']
         message = responseDict['message']['text']
         result_message = DialogFlowApiManager.GetMessageFromDialogFlowApi(message)
+
         payloAd = dict()
         payloAd.update(chat_id=chat_id, text=result_message)
         await HttpClient().post_data_to_server('sendMessage', payloAd)
