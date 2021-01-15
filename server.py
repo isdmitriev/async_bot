@@ -5,6 +5,7 @@ from httpclient import HttpClient,SetWebHook
 from DialogFlowApi import DialogFlowApiManager
 from aiohttp import  web
 from ELIZA.MessageHandler import MessageHandler
+from ELIZA.eliza_two import analyze
 SetWebHook().set_web_hook()
 router=web.RouteTableDef()
 
@@ -44,7 +45,12 @@ async def handler(request:web.Request):
     else:
         chat_id = responseDict['message']['chat']['id']
         message = responseDict['message']['text']
-        result_message=messageHandler.get_answer(message)
+        # result_message = messageHandler.get_answer(message)
+        result_message=analyze(message)
+
+
+
+
 
 
         payloAd = dict()
