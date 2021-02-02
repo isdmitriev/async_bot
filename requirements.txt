@@ -1,0 +1,4 @@
+telegram==0.0.1
+telebot==0.0.4
+aiohttp==3.7.3
+dialogflow==1.1.0
