@@ -142,6 +142,10 @@ gPats = [
   [r'(.*) sorry (.*)',
   [  "There are many times when no apology is needed.",
     "What feelings do you have when you apologize?"]],
+[r'Привет(.*)',
+  [  "Привет,я рада что вы зашли сегодня",
+    "Привет,как ты сегодня?",
+    "Привет,как ты себя чувствуешь сегодня?"]],
 
   [r'Hello(.*)',
   [  "Hello... I'm glad you could drop by today.",
@@ -203,6 +207,11 @@ gPats = [
   [  "Don't you really %1?",
     "Why don't you %1?",
     "Do you want to %1?"]],
+[r'Я чувствую (.*)',
+     ["Хорошо, расскажи мне подробнее об этих чувствах",
+      "Вы часто чувствуете {0}?",
+      "Когда вы обычно чувствуете {0}?",
+      " Когда ты чувствуешь{0},что ты делаешь?"]],
 
   [r'I feel (.*)',
   [  "Good, tell me more about these feelings.",

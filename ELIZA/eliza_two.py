@@ -6,6 +6,7 @@ reflections = {
     "am": "are",
     "was": "were",
     "i": "you",
+    "я":"ты",
     "i'd": "you would",
     "i've": "you have",
     "i'll": "you will",
@@ -19,16 +20,51 @@ reflections = {
     "me": "you"
 }
 
+reflections = {
+    "am": "are",
+    "был": "были",
+    "i": "you",
+    "я":"ты",
+    "мне бы": "ты бы",
+    "я имею": "ты имеешь",
+    "я буду": "ты будешь",
+    "мой": "твой",
+    "are": "am",
+    "я имею": "у тебя есть",
+    "ты будешь": "я буду",
+    "твой": "мой",
+    "твой": "мой",
+    "тебе": "мне",
+    "мне": "тебе",
+    "меня":"тебя"
+}
+
+
+
+
 psychobabble = [
     [r'I need (.*)',
      ["Why do you need {0}?",
       "Would it really help you to get {0}?",
       "Are you sure you need {0}?"]],
+[r'Мне нужна(.*)',
+     ["Зачем тебе{0}?",
+      "Это действительно поможет тебе получить {0}?",
+      "Ты уверен, что тебе нужна {0}?"]],
+
+    [r'Почему ты не можешь\'? ([^\?]*)\??',
+     ["Вы правда думаете, что я не{0}?",
+      "Возможно, в конце концов я буду{0}.",
+      "Ты действительно хочешь, чтобы я{0}?"]],
+
 
     [r'Why don\'?t you ([^\?]*)\??',
      ["Do you really think I don't {0}?",
       "Perhaps eventually I will {0}.",
       "Do you really want me to {0}?"]],
+
+
+
 
     [r'Why can\'?t I ([^\?]*)\??',
      ["Do you think you should be able to {0}?",
@@ -74,9 +110,19 @@ psychobabble = [
       "Does that reason apply to anything else?",
       "If {0}, what else must be true?"]],
 
+[r'(.*) извините (.*)',
+     ["Очень часто извинения не нужны"]],
+
+
     [r'(.*) sorry (.*)',
      ["There are many times when no apology is needed.",
       "What feelings do you have when you apologize?"]],
+
+[r'Привет(.*)',
+  [  "Привет,я рада что вы зашли сегодня",
+    "Привет,как ты сегодня?",
+    "Привет,как ты себя чувствуешь сегодня?"]],
+
 
     [r'Hello(.*)',
      ["Hello... I'm glad you could drop by today.",
@@ -87,6 +133,11 @@ psychobabble = [
      ["Do you doubt {0}?",
       "Do you really think so?",
       "But you're not sure {0}?"]],
+[r'Я думаю (.*)',
+     ["Ты сомневаешься в том что {0}?",
+      "Ты действительно так думаешь?",
+      "Но ты не уверен в том что {0}?"]],
+
 
     [r'(.*) friend (.*)',
      ["Tell me more about your friends.",
@@ -138,6 +189,14 @@ psychobabble = [
      ["Don't you really {0}?",
       "Why don't you {0}?",
       "Do you want to {0}?"]],
+[r'Я чувствую (.*)',
+     ["Хорошо, расскажи мне подробнее об этих чувствах",
+      "Вы часто чувствуете {0}?",
+      "Когда вы обычно чувствуете {0}?",
+      "Когда ты чувствуешь{0},что ты делаешь?"]],
+
+
+
 
     [r'I feel (.*)',
      ["Good, tell me more about these feelings.",
