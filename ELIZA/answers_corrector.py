@@ -61,11 +61,12 @@ class AnswerCorrector(object):
                         list_words[i] = list_words[i].replace("ю", "ешь")
                         i = i + 1
                         continue
-            if ((word == "я" and i + 1 < amount)and (list_words[i-1]=="чтобы") and (cls.get_part(list_words[i + 1]) == "INFN")):
+            if ((word == "я" and i + 1 < amount) and (list_words[i - 1] == "чтобы") and (
+                    cls.get_part(list_words[i + 1]) == "INFN")):
                 pos, tense = cls.get_part_and_tense(list_words[i + 1])
 
                 if (list_words[i + 1].endswith("ть")):
-                    list_words[i + 1] = list_words[i+1].replace("ть", "л")
+                    list_words[i + 1] = list_words[i + 1].replace("ть", "л")
                     i = i + 1
                     continue
 

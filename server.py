@@ -1,20 +1,20 @@
 import aiohttp
 import asyncio
 import ssl
-from httpclient import HttpClient,SetWebHook
+from httpclient import HttpClient, SetWebHook
 from dialog_flow_api import DialogFlowApiManager
-from aiohttp import  web
+from aiohttp import web
 from ELIZA.message_handler import MessageHandler
 from ELIZA.eliza_two import analyze
-SetWebHook().set_web_hook()
-router=web.RouteTableDef()
 
-message_handler=MessageHandler()
+SetWebHook().set_web_hook()
+router = web.RouteTableDef()
+
+message_handler = MessageHandler()
 
 
 @router.post('/1365051067:AAHIxSr2WCPuGqkukq0pHLQCupuEiGA6N3w')
-async def handler(request:web.Request):
-
+async def handler(request: web.Request):
     response_dict = await request.json()
 
     if ('sticker' in response_dict['message']):
@@ -46,30 +46,22 @@ async def handler(request:web.Request):
         chat_id = response_dict['message']['chat']['id']
         message = response_dict['message']['text']
         # result_message = messageHandler.get_answer(message)
-        result_message=analyze(message)
-
-
-
-
-
+        result_message = analyze(message)
 
         paylo_ad = dict()
         paylo_ad.update(chat_id=chat_id, text=result_message)
         await HttpClient().post_data_to_server('sendMessage', paylo_ad)
         return web.Response(status=200)
 
-async def init_app():
 
-    app=web.Application(debug=True)
+async def init_app():
+    app = web.Application(debug=True)
 
     app.add_routes(router)
     return app
 
+
 sslcontext = ssl.SSLContext(ssl.PROTOCOL_SSLv23)
-sslcontext.load_cert_chain('webhook_cert.pem','webhook_pkey.pem')
+sslcontext.load_cert_chain('webhook_cert.pem', 'webhook_pkey.pem')
 
-
-web.run_app(init_app(),port=8443,ssl_context=sslcontext)
-
-
-
+web.run_app(init_app(), port=8443, ssl_context=sslcontext)
