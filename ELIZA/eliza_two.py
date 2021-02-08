@@ -23,7 +23,8 @@ from ELIZA.answers_corrector import AnswerCorrector
 reflections = {
 
     "был": "были",
-
+    "твоих":"моих",
+    "твоем":"моем",
     "я": "ты",
     "я бы": "ты бы",
     "мне бы": "ты бы",
