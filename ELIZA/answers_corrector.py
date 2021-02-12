@@ -24,7 +24,7 @@ class AnswerCorrector(object):
             pos, tense = cls.get_part_and_tense(word)
 
             if ((word == "ты" and i + 1 < amount) and (cls.get_part(list_words[i + 1]) == "VERB")):
-                if (list_words[i + 1].endswith("оюсь")):
+                if (list_words[i + 1].endswith("юсь")):
                     list_words[i + 1] = list_words[i + 1].replace("юсь", "ешься")
                     i = i + 1
                     continue
@@ -38,11 +38,14 @@ class AnswerCorrector(object):
                     continue
 
             if ((pos == "ADVB" and i + 1 < amount) and (cls.get_part(list_words[i + 1]) == "VERB")):
+
                 pos, tense = cls.get_part_and_tense(list_words[i + 1])
                 word_value = list_words[i + 1]
-                if (tense == "pres"):
+                if (tense == "pres" or tense == "None"):
+
                     if (word_value.endswith("юсь")):
                         list_words[i + 1] = list_words[i + 1].replace("юсь", "ешься")
+
                         i = i + 1
                         continue
                     if (word_value.endswith("ю")):
@@ -52,7 +55,7 @@ class AnswerCorrector(object):
             if ((pos == "VERB" and i + 1 < amount) and (
                     cls.get_part(list_words[i + 1]) == "INFN" or cls.get_part(list_words[i + 1]) == "VERB")):
 
-                if (tense == "pres"):
+                if (tense == "pres" or tense == "None"):
                     if (word.endswith("юсь")):
                         list_words[i] = list_words[i].replace("юсь", "ешься")
                         i = i + 1
