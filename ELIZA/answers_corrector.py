@@ -17,6 +17,7 @@ class AnswerCorrector(object):
 
     @classmethod
     def correct_text(cls, answer):
+        print(answer)
         list_words = answer.split()
         amount = len(list_words)
         i = 0
@@ -39,11 +40,13 @@ class AnswerCorrector(object):
 
             if ((pos == "ADVB" and i + 1 < amount) and (cls.get_part(list_words[i + 1]) == "VERB")):
 
-                pos, tense = cls.get_part_and_tense(list_words[i + 1])
-                word_value = list_words[i + 1]
-                if (tense == "pres" or tense == "None"):
+                pos, tense_two = cls.get_part_and_tense(list_words[i + 1])
 
-                    if (word_value.endswith("юсь")):
+                word_value = list_words[i + 1]
+
+                if (tense_two == "pres" or tense_two == "None"):
+
+                    if (list_words[i + 1].endswith("юсь")):
                         list_words[i + 1] = list_words[i + 1].replace("юсь", "ешься")
 
                         i = i + 1
