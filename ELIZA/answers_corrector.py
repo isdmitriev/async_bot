@@ -25,7 +25,7 @@ class AnswerCorrector(object):
 
             if ((word == "ты" and i + 1 < amount) and (cls.get_part(list_words[i + 1]) == "VERB")):
                 if (list_words[i + 1].endswith("оюсь")):
-                    list_words[i + 1] = list_words[i + 1].replace("юсь", "ишься")
+                    list_words[i + 1] = list_words[i + 1].replace("юсь", "ешься")
                     i = i + 1
                     continue
                 if (list_words[i + 1].endswith("ю")):
