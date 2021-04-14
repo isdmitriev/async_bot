@@ -24,4 +24,4 @@ jobs:
       - name: Run tests
         run: coverage run src/tests.py
       - name: Tests report
-        run: run t.py
+        run: python t.py
