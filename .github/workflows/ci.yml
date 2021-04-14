@@ -1,24 +1,27 @@
-name: Run Python Tests
+name: Run tests on any Push event
+# Запуск при любом push евенте в любой ветке, за исключением релизных тэгов.
+# Они будт тестироваться перед сборкой
 on:
   push:
+    tags:
+      - '!refs/tags/*'
     branches:
-      - master
-  pull_request:
-    branches:
-      - master
-
+      - '*'
 jobs:
-  build:
-    runs-on: ubuntu-latest
+  run_tests:
+    runs-on: [ubuntu-latest]
     steps:
-      - uses: actions/checkout@v2
-      - name: Install Python 3
-        uses: actions/setup-python@v1
+      # Чекаутим код
+      - uses: actions/checkout@master
+      # Устанавливаем python нужной версии
+      - uses: actions/setup-python@v1
         with:
-          python-version: 3.6
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
-      - name: Run tests with pytest
-        run: python t.py
+          python-version: '3.8'
+          architecture: 'x64'
+      - name: Install requirements
+        # Устанавливаем зависимости
+        run: pip install -r requirements.txt
+      - name: Run tests
+        run: coverage run src/tests.py
+      - name: Tests report
+        run: t.py
