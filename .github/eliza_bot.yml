@@ -33,5 +33,6 @@ jobs:
       - name: Run unit tests
         run: |
           python --version
+          pip --version
           
           
