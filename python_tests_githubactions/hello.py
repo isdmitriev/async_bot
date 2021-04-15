@@ -1,2 +1,5 @@
-print(2+7)
-print('hello')
+import pytest
+
+def test_fun():
+    assert 2==2
+
