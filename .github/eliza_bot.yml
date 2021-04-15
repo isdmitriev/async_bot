@@ -2,12 +2,7 @@ name: CI
 
 on:
   push:
-    branches:
-    - eliza_bot
-    
-    
-
-    
+    branches: [eliza_bot]
 
 jobs:
   build:
@@ -18,20 +13,18 @@ jobs:
       - uses: actions/checkout@v2
 
       # Set up Python 3.6 environment
-      - name: Set up Python 3.8
+      - name: Set up Python 3.6
         uses: actions/setup-python@v1
         with:
-          python-version: "3.8"
+          python-version: "3.6"
 
       # Install dependencies
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt
+
 
       # Run our unit tests
       - name: Run unit tests
         run: |
           python --version
-          
-          
