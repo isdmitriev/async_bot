@@ -2,9 +2,9 @@ name: Python application
 
 on:
   push:
-    branches: [ main,eliza_bot ]
+    branches: [ eliza_bot ]
   pull_request:
-    branches: [ main,eliza_bot ]
+    branches: [ eliza_bot ]
 
 jobs:
   build:
