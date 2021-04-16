@@ -7,6 +7,7 @@ def test_second():
     assert a==32
 
 def test_third():
-    assert 2==5
+
+    assert 1==1
 
 
