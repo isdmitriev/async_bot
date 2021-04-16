@@ -5,3 +5,8 @@ def test_one():
 def test_second():
     a=32
     assert a==32
+
+def test_third():
+    assert 2==5
+
+
